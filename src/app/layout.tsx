@@ -16,8 +16,8 @@ const manrope = FontManrope({
 });
 
 export const metadata: Metadata = {
-  title: "Charity Reimer | Winnipeg REALTOR®",
-  description: "Charity Reimer helps families buy and sell with confidence in Winnipeg and surrounding rural areas.",
+  title: "KO Realty Ltd",
+  description: "KO realty ltd helps families buy and sell with confidence in calgary and surrounding rural areas.",
   icons: {
     icon: "/logo.png",
     shortcut: "/logo.png",
