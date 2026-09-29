@@ -95,7 +95,7 @@ export default function ReviewsGlassSection() {
             className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-accent-champagne text-xs uppercase tracking-[0.2em] font-sans font-bold mb-4"
           >
             <Quote size={13} className="text-accent-champagne" />
-            Charity&apos;s Approach
+            KO realty ltd&apos;s Approach
           </motion.div>
 
           <motion.h2

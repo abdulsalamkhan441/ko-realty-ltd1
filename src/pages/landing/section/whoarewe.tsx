@@ -6,6 +6,18 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { agent as AGENT } from "../../../types/sitecontent";
 
+// ============================================================================
+// TYPES
+// ============================================================================
+interface Closing {
+  address: string;
+  neighbourhood: string;
+  price: string;
+}
+
+// ============================================================================
+// COMPONENT
+// ============================================================================
 export default function AgentSection() {
   return (
     <section className="relative w-full bg-brand-dark text-bg-ivory py-14 md:py-20 px-6 md:px-12 overflow-hidden">
@@ -26,7 +38,7 @@ export default function AgentSection() {
         >
           <div className="w-6 h-[1px] bg-accent-champagne" aria-hidden="true" />
           <span className="text-accent-champagne text-xs uppercase tracking-[0.25em] font-sans font-semibold">
-            About Charity
+            About KO realty ltd
           </span>
         </motion.div>
 
@@ -87,7 +99,7 @@ export default function AgentSection() {
             </p>
 
             <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-[11px] font-sans uppercase tracking-wider">
-              {AGENT.specialties.map((spec, i) => (
+              {AGENT.specialties.map((spec: string, i: number) => (
                 <React.Fragment key={spec}>
                   {i > 0 && <span className="text-bg-ivory/25" aria-hidden="true">·</span>}
                   <span className="text-bg-ivory/60">{spec}</span>
@@ -117,7 +129,7 @@ export default function AgentSection() {
               </div>
 
               <div className="border-t border-white/10">
-                {AGENT.recentClosings.map((sale) => (
+                {AGENT.recentClosings.map((sale: Closing) => (
                   <div
                     key={sale.address}
                     className="grid grid-cols-[1fr_auto] sm:grid-cols-[2fr_1fr_auto] items-baseline gap-x-6 py-3.5 border-b border-white/10"

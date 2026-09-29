@@ -14,6 +14,18 @@ import {
 } from "lucide-react";
 import { ctaConfig, dashboardCardConfig, ctaStatBars as STAT_BARS } from "../../../types/sitecontent";
 
+interface DashboardStat {
+  label: string;
+  value: string;
+}
+
+interface StatBar {
+  label: string;
+  value: string;
+  color: string;
+  valueColor: string;
+}
+
 const CLIENT_CONFIG = {
   cta: ctaConfig,
   dashboardCard: dashboardCardConfig,
@@ -64,7 +76,7 @@ export default function FinalCTASection() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="space-y-3 mb-10"
               >
-                {CLIENT_CONFIG.cta.bulletPoints.map((item, idx) => (
+                {CLIENT_CONFIG.cta.bulletPoints.map((item: string, idx: number) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-5 h-5 rounded-full bg-accent-champagne/20 text-accent-champagne flex items-center justify-center shrink-0">
                       <CheckCircle2 size={14} />
@@ -157,7 +169,7 @@ export default function FinalCTASection() {
 
                 {/* Stat Box Grid */}
                 <div className="grid grid-cols-2 gap-3 mb-6">
-                  {CLIENT_CONFIG.dashboardCard.stats.map((stat, idx) => (
+                  {CLIENT_CONFIG.dashboardCard.stats.map((stat: DashboardStat, idx: number) => (
                     <div key={idx} className="p-4 rounded-2xl bg-black/30 border border-white/10 hover:border-white/20 transition-colors">
                       <span className="text-[11px] font-sans text-bg-ivory/60 block mb-1">
                         {stat.label}
@@ -171,7 +183,7 @@ export default function FinalCTASection() {
 
                 {/* Animated Stat Bars — fill from 0 the moment they scroll into view */}
                 <div className="space-y-4 mb-6">
-                  {STAT_BARS.map((bar, idx) => (
+                  {STAT_BARS.map((bar: StatBar, idx: number) => (
                     <div key={bar.label}>
                       <div className="flex justify-between text-xs font-sans mb-1.5">
                         <span className="text-bg-ivory/70">{bar.label}</span>

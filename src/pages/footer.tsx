@@ -6,6 +6,11 @@ import Image from "next/image";
 import { Mail, Phone, MapPin, Send, ArrowUp } from "lucide-react";
 import { footerConfig as CLIENT_CONFIG } from "../types/sitecontent";
 
+interface FooterLinkItem {
+  label: string;
+  href: string;
+}
+
 export default function FooterSection() {
   const scrollToTop = () => {
     if (typeof window !== "undefined") {
@@ -52,7 +57,7 @@ export default function FooterSection() {
               {CLIENT_CONFIG.exploreSection.title}
             </h4>
             <ul className="space-y-2.5 text-xs text-white/70">
-              {CLIENT_CONFIG.exploreSection.links.map((link) => (
+              {CLIENT_CONFIG.exploreSection.links.map((link: FooterLinkItem) => (
                 <li key={link.label}>
                   <Link href={link.href} className="hover:text-accent-champagne transition-colors">
                     {link.label}
@@ -68,7 +73,7 @@ export default function FooterSection() {
               {CLIENT_CONFIG.resourcesSection.title}
             </h4>
             <ul className="space-y-2.5 text-xs text-white/70">
-              {CLIENT_CONFIG.resourcesSection.links.map((link) => (
+              {CLIENT_CONFIG.resourcesSection.links.map((link: FooterLinkItem) => (
                 <li key={link.label}>
                   <Link href={link.href} className="hover:text-accent-champagne transition-colors">
                     {link.label}
@@ -84,7 +89,7 @@ export default function FooterSection() {
               {CLIENT_CONFIG.legalSection.title}
             </h4>
             <ul className="space-y-2.5 text-xs text-white/70">
-              {CLIENT_CONFIG.legalSection.links.map((link) => (
+              {CLIENT_CONFIG.legalSection.links.map((link: FooterLinkItem) => (
                 <li key={link.label}>
                   <Link href={link.href} className="hover:text-accent-champagne transition-colors">
                     {link.label}
@@ -147,7 +152,7 @@ export default function FooterSection() {
           </div>
 
           <div className="flex items-center gap-6 text-[11px]">
-            {CLIENT_CONFIG.brandBar.footerLinks.map((link) => (
+            {CLIENT_CONFIG.brandBar.footerLinks.map((link: FooterLinkItem) => (
               <Link key={link.label} href={link.href} className="hover:text-white transition-colors">
                 {link.label}
               </Link>

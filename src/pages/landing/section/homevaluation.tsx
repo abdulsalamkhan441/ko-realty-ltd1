@@ -14,10 +14,16 @@ import {
   AlertCircle,
 } from "lucide-react";
 import { valuationConfig as CLIENT_CONFIG } from "../../../types/sitecontent";
+import { CLIENT_RENEG_LIMIT } from "tls";
 
 // ============================================================================
 // TYPES & VALIDATION LOGIC
 // ============================================================================
+interface PropertyOption {
+  label: string;
+  value: string;
+}
+
 interface FormData {
   name: string;
   emailOrPhone: string;
@@ -254,7 +260,7 @@ export default function HomeValuationSection() {
                       Valuation Request Received
                     </h3>
                     <p className="text-xs font-sans text-brand-dark/80 max-w-sm leading-relaxed">
-                      Thank you! Charity will review your request and reach out
+                      Thank you! ko realty ltd will review your request and reach out
                       shortly to discuss your custom market evaluation.
                     </p>
                     <button
@@ -398,7 +404,7 @@ export default function HomeValuationSection() {
                           onChange={(e) => updateField("propertyType", e.target.value)}
                           className={`${inputBaseClasses} border border-brand-dark/10 appearance-none cursor-pointer pr-10`}
                         >
-                          {CLIENT_CONFIG.propertyOptions.map((option) => (
+                          {CLIENT_CONFIG.propertyOptions.map((option: PropertyOption) => (
                             <option key={option.value} value={option.value}>
                               {option.label}
                             </option>

@@ -2,8 +2,16 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Phone, CalendarCheck } from "lucide-react";
+import { ArrowRight, Phone, CalendarCheck, LucideIcon } from "lucide-react";
 import { differenceConfig as CLIENT_CONFIG } from "../../../types/sitecontent";
+
+interface DifferenceFeature {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  linkText?: string;
+  linkHref?: string;
+}
 
 export default function WhyUsSection() {
   return (
@@ -91,7 +99,7 @@ export default function WhyUsSection() {
             <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-white/10 -translate-x-1/2" />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-12">
-              {CLIENT_CONFIG.features.map((feature, idx) => {
+              {CLIENT_CONFIG.features.map((feature: DifferenceFeature, idx: number) => {
                 const Icon = feature.icon;
                 const [before, after] = feature.description.split("—");
                 return (
@@ -101,7 +109,8 @@ export default function WhyUsSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.7, delay: idx * 0.15 }}
-                    className={`flex items-start gap-4 pb-8 md:pb-0 ${idx < 2 ? "md:mb-6" : ""
+                    className={`flex items-start gap-4 pb-8 md:pb-0 ${
+                      idx < 2 ? "md:mb-6" : ""
                     }`}
                   >
                     {/* Dark surface icon badge */}

@@ -4,8 +4,21 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, MoreHorizontal, Menu, X } from "lucide-react";
+import { ArrowUpRight, MoreHorizontal, Menu, X, LucideIcon } from "lucide-react";
 import { heroConfig as CLIENT_CONFIG } from "../../../types/sitecontent";
+
+interface NavLink {
+  name: string;
+  href: string;
+  active?: boolean;
+}
+
+interface StatItem {
+  icon: LucideIcon;
+  value: string;
+  suffix: string;
+  label: string;
+}
 
 // ===========================================================================
 // SUB-COMPONENTS
@@ -76,7 +89,7 @@ export default function HeroSection() {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-8">
-              {CLIENT_CONFIG.navLinks.map((link) => (
+              {CLIENT_CONFIG.navLinks.map((link: NavLink) => (
                 <Link
                   key={link.name}
                   href={link.href}
@@ -140,7 +153,7 @@ export default function HeroSection() {
                 transition={{ duration: 0.3, delay: 0.05 }}
                 className="flex flex-col items-center justify-center h-full gap-8 px-6"
               >
-                {CLIENT_CONFIG.navLinks.map((link) => (
+                {CLIENT_CONFIG.navLinks.map((link: NavLink) => (
                   <Link
                     key={link.name}
                     href={link.href}
@@ -275,7 +288,7 @@ export default function HeroSection() {
         >
           <div className="bg-brand-navy-dark/90 backdrop-blur-md border border-white/10 rounded-[1.75rem] sm:rounded-[2rem] p-6 sm:p-7 md:p-8 shadow-2xl">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-6 md:gap-6 md:divide-y-0 md:divide-x divide-white/10">
-              {CLIENT_CONFIG.stats.map((stat, idx) => {
+              {CLIENT_CONFIG.stats.map((stat: StatItem, idx: number) => {
                 const Icon = stat.icon;
                 return (
                   <div
