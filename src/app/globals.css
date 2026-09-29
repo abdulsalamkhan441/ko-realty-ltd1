@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------ */
+/* Tailwind v4 only turns CSS variables into utility classes (bg-*,   */
+/* text-*, border-*, divide-*, etc.) when they're declared inside an  */
+/* @theme block AND prefixed with --color-. Variables sitting in a    */
+/* plain :root block are just custom properties — Tailwind has no     */
+/* idea "brand-dark" should become `bg-brand-dark`, so it drops those */
+/* classes at build time. That's why every dark/gold utility silently */
+/* did nothing on the hero.                                           */
+/* ------------------------------------------------------------------ */
+
+@theme {
+  /* Core Palette */
+  --color-brand-navy: #1f2d3a;
+  --color-brand-dark: #11171b;
+  --color-bg-ivory: #f4f0e8;
+  --color-bg-stone: #d9d5cc;
+  --color-accent-sage: #8e9489;
+  --color-accent-champagne: #b69a62;
+
+  /* Color Extensions & Functional Variants */
+  --color-brand-navy-dark: #16212b;
+  --color-brand-navy-light: #2c3e4f;
+  --color-bg-ivory-light: #faf8f5;
+  --color-bg-stone-dark: #c4bfb4;
+  --color-accent-sage-light: #a5aaa0;
+  --color-accent-champagne-hover: #9e834f;
+
+  /* Overlay tokens (used via bg-[color:var(--overlay-dark-70)] or similar) */
+  --color-overlay-dark-70: rgba(17, 23, 27, 0.7);
+  --color-overlay-dark-40: rgba(17, 23, 27, 0.4);
+  --color-overlay-navy-90: rgba(31, 45, 58, 0.9);
+  --color-border-subtle: rgba(17, 23, 27, 0.08);
+
+  /* Radii + fonts, if you want token-driven values here too */
+  --radius-arch: 1.5rem;
+  --font-serif: var(--font-dm-serif), serif;
+  --font-sans: var(--font-manrope), sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-bg-ivory);
+    color: var(--color-brand-dark);
+    font-family: var(--font-manrope), sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-dm-serif), serif;
+  }
+}
